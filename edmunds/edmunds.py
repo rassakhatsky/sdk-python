@@ -59,11 +59,11 @@ class Edmunds:
 		# ConnectionError would result if an improper url is assembeled
 		except requests.ConnectionError:
 			if self._debug:
-				print 'ConnectionError: URL was probably incorrect'
+				print('ConnectionError: URL was probably incorrect')
 			return None
 		except requests.Timeout:
 			if self._debug:
-				print 'Timeout Error'
+				print('Timeout Error')
 			return None
 
 		# extract JSON
@@ -72,9 +72,9 @@ class Edmunds:
 		# ValueError would result if JSON cannot be parsed
 		except ValueError:
 			if self._debug:
-				print 'ValueError: JSON could not be parsed'
-				print 'Response:'
-				print r.text
+				print('ValueError: JSON could not be parsed')
+				print('Response:')
+				print(r.text)
 			return None
 
 		return response_json

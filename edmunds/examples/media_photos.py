@@ -35,16 +35,16 @@ def get_style_id(api, make, model, year):
 	response = api.make_call(endpoint)
 
 	# error checking
-	if (not response or 'error' in response or 
+	if (not response or 'error' in response or
 		'errorType' in response or not 'styles' in response):
-		print "Error in get_style_id"
+		print("Error in get_style_id")
 		if 'error' in response:
 			if 'message' in response['error']:
-				print "Error message:", response['error']['message']
+				print ("Error message:", response['error']['message'])
 		elif 'errorType' in response:
-			print "errorType:", response['errorType']
+			print("errorType:", response['errorType'])
 			if 'message' in response:
-				print "message:", response['message']
+				print("message:", response['message'])
 		return None
 
 	 # return first style ID
@@ -70,12 +70,12 @@ def get_photos(api, style_id):
 
 	# error checking
 	if not response or 'error' in response:
-		print "Error in get_photos"
+		print("Error in get_photos")
 		if not response:
-			print "No or empty response"
+			print("No or empty response")
 		elif 'error' in response:
 			if 'message' in response['error']:
-				print "Error message:", response['error']['message']
+				print("Error message:", response['error']['message'])
 		return None
 
 	result = {}
@@ -103,9 +103,9 @@ def get_model_s_photos(api):
 	if style_id:
 		photo_urls = get_photos(api, style_id)
 	if photo_urls:
-		print photo_urls
+		print(photo_urls)
 	return photo_urls
 
 if __name__ == "__main__":
 	api = Edmunds('YOUR API KEY', True) # True indicates debug mode is ON
-	print get_model_s_photos(api)
+	print(get_model_s_photos(api))

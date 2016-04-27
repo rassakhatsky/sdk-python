@@ -44,15 +44,15 @@ def get_makes(api, year=None, state=None, view=None):
 	# error checking
 	if (not response or 'errorType' in response or 
 		'error' in response):
-		print "Error in get_makes"
+		print("Error in get_makes")
 		if 'errorType' in response:
-			print "errorType: " + response['errorType']
+			print("errorType: " + response['errorType'])
 		if 'message' in response:
-			print "message: " + response['message']
+			print("message: " + response['message'])
 		return None
 	
 	return response
 
 if __name__ == "__main__":
 	api = Edmunds('YOUR API KEY', True) # True indicates debug mode is ON
-	print get_makes(api, '2013', 'new')
+	print(get_makes(api, '2013', 'new'))

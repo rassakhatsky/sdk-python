@@ -10,10 +10,10 @@ from edmunds import Edmunds
 api = Edmunds('YOUR API KEY')
 
 # Test 1: No URL Path
-assert api.make_call('') == None
+assert api.make_call('') is None
 
 # Test 2: Incorrect URL Path
-assert api.make_call('ERROR') == None
+assert api.make_call('ERROR') is None
 
 # Test 3: Correct URL Path
 # Check that makesCount key is in response
